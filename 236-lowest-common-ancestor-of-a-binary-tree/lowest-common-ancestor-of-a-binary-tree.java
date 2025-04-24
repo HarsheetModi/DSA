@@ -7,6 +7,8 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+
+//Efficient solution
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root == null) return null;
@@ -28,6 +30,8 @@ class Solution {
 
     }
 }
+
+// Naive solution
 
 
 // class Solution {
