@@ -14,6 +14,7 @@
  * }
  */
 class Solution {
+    //Efficient Solution
     public int countNodes(TreeNode root) {
         if(root==null) return 0;
         int lh=0, rh=0;
@@ -29,6 +30,8 @@ class Solution {
         }
         if(lh==rh) return (int)Math.pow(2, lh)-1;
         return 1+countNodes(root.left)+countNodes(root.right);
+
+        //Naive Solution
 
         // if(root==null) return 0;
         // else return 1+countNodes(root.left)+countNodes(root.right);
