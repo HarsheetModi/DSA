@@ -24,7 +24,7 @@ class Solution {
                 curr = curr.left;
             }
             curr = temp.pop();
-            ans.add(Integer.valueOf(curr.val));
+            ans.add(curr.val);
             curr = curr.right;
         }
         return ans;
