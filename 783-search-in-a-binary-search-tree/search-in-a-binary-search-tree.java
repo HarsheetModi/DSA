@@ -14,8 +14,8 @@
  * }
  */
 class Solution {
-    TreeNode search(TreeNode root, int val){
-        while(root != null){
+    public TreeNode searchBST(TreeNode root, int val) {
+         while(root != null){
             if(root.val == val) return root;
             else if(root.val < val){
                 root = root.right;
@@ -25,9 +25,5 @@ class Solution {
             }
         }
         return null;
-    }
-    public TreeNode searchBST(TreeNode root, int val) {
-        TreeNode result = search(root, val);
-        return result;
     }
 }
