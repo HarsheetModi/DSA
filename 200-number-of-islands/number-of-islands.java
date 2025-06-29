@@ -28,10 +28,11 @@ class Solution {
             for(int[] dir : directions){
                 int r = row + dir[0];
                 int c = col + dir[1];
-                if(r>=0 && r < rows && c>=0 && c< cols && grid[r][c]=='1' && !visited[r][c]){
-                    queue.offer(new int[]{r,c});
-                    visited[r][c] = true;
+                if(r<0 || r >= rows || c<0 || c>=cols || grid[r][c]=='0' || visited[r][c]){
+                    continue;
                 }
+                queue.offer(new int[]{r,c});
+                visited[r][c] = true;
             }
         }
     }
