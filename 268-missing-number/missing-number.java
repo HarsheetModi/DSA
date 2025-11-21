@@ -1,15 +1,21 @@
 class Solution {
     
     public int missingNumber(int[] nums) {
-        int sum = 0;
-        int i=0;
-        int osum = 0;
-        for(; i<nums.length; i++){
-            osum = osum+nums[i];
-            sum = sum+i;
+        // int sum = 0;
+        // int i=0;
+        // int osum = 0;
+        // for(; i<nums.length; i++){
+        //     osum = osum+nums[i];
+        //     sum = sum+i;
+        // }
+        // sum= sum+i;
+        // return sum-osum;
+        int XOR1 = 0;
+        int XOR2 = 0;
+        for(int i=0; i<nums.length; i++){
+            XOR2 = XOR2 ^ nums[i];
+            XOR1 = XOR1 ^ i+1;
         }
-        sum= sum+i;
-        return sum-osum;
-        
+        return XOR1 ^ XOR2;
     }
 }
