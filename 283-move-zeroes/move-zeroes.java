@@ -6,14 +6,16 @@ class Solution {
                 curr++;
             }
             else{
+                int temp = nums[position];
                 nums[position] = nums[curr];
+                nums[curr] = temp;
                 curr++;
                 position++;
             }
         }
-        for(int i =position; i<nums.length; i++){
-            nums[i]=0;
-        }
+        // for(int i =position; i<nums.length; i++){
+        //     nums[i]=0;
+        // }
 
     }
 }
