@@ -14,15 +14,15 @@ class Solution {
         return ans;
     }
     public int last(int[] nums, int low, int high, int target){
-        int ans = -1;
+        int ans = nums.length;
         while(low<=high){
             int mid = low + (high-low)/2;
-            if (nums[mid] <= target) {
+            if(nums[mid] > target){
                 ans = mid;
-                low = mid + 1;
-            } 
-            else {
-                high = mid - 1;
+                high = mid-1;
+            }
+            else{
+                low = mid+1;
             }
         }
         return ans;
@@ -35,7 +35,7 @@ class Solution {
         if(lb == -1 || lb == nums.length || nums[lb] != target) return ans;
         int up = last(nums, 0, nums.length-1, target);
         ans[0] = lb;
-        ans[1] = up;
+        ans[1] = up-1;
         
         return ans;
     }
