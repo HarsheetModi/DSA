@@ -3,8 +3,8 @@ class Solution {
         if(low>high) return -1;
         int mid = high - (high-low)/2;
         if(nums[mid] == target) return mid;
-        else if(nums[mid] < target) return binarySearch(nums, mid+1, high, target);
-        return binarySearch(nums, low, mid-1, target);
+        else if(nums[mid] > target) return binarySearch(nums, low, mid-1 , target);
+        return binarySearch(nums, mid+1, high, target);
     }
 
     public int search(int[] nums, int target) {
