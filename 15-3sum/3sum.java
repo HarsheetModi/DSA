@@ -1,36 +1,62 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
+
         Arrays.sort(nums);
-        for(int i=0;i<nums.length-2;i++){
-            if(i>0 && nums[i]==nums[i-1]){
-                continue;
-            }
+        List<List<Integer>> ans = new ArrayList<>();
+
+        for(int i=0; i<nums.length-2; i++){
+            if(i>0 && nums[i] == nums[i-1]) continue;
             int left = i+1;
             int right = nums.length-1;
             while(left<right){
-                int sum = nums[i]+nums[left]+nums[right];
-                if(sum>0){
+                int total = nums[i] + nums[left] + nums[right];
+                if(total == 0){
+                    ans.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    left++;
                     right--;
+                    while(nums[left] == nums[left-1] && left<right) left++;
+                    while(nums[right] == nums[right+1] && left<right) right--;
                 }
-                else if(sum<0){
+                else if(total < 0){
                     left++;
                 }
                 else{
-                    List<Integer> addval = new ArrayList<>();
-                    addval.add(nums[i]);
-                    addval.add(nums[left]);
-                    addval.add(nums[right]);
-                    res.add(addval);
-                    left++;
-                    while(nums[left]==nums[left-1]&&left<right){
-                        left++;
-                    }
-                    
+                    right--;
                 }
             }
         }
-        return res;
+        return ans;
+        // List<List<Integer>> res = new ArrayList<>();
+        // Arrays.sort(nums);
+        // for(int i=0;i<nums.length-2;i++){
+        //     if(i>0 && nums[i]==nums[i-1]){
+        //         continue;
+        //     }
+        //     int left = i+1;
+        //     int right = nums.length-1;
+        //     while(left<right){
+        //         int sum = nums[i]+nums[left]+nums[right];
+        //         if(sum>0){
+        //             right--;
+        //         }
+        //         else if(sum<0){
+        //             left++;
+        //         }
+        //         else{
+        //             List<Integer> addval = new ArrayList<>();
+        //             addval.add(nums[i]);
+        //             addval.add(nums[left]);
+        //             addval.add(nums[right]);
+        //             res.add(addval);
+        //             left++;
+        //             while(nums[left]==nums[left-1]&&left<right){
+        //                 left++;
+        //             }
+                    
+        //         }
+        //     }
+        // }
+        // return res;
 
 
 
