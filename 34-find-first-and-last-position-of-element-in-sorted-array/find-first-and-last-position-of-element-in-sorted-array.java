@@ -3,8 +3,11 @@ class Solution {
         int ans = -1;
         while(low<=high){
             int mid = low + (high-low)/2;
-            if(nums[mid] >= target){
+            if(nums[mid] == target){
                 ans = mid;
+                high = mid-1;
+            }
+            else if(nums[mid] > target){
                 high = mid-1;
             }
             else{
@@ -13,30 +16,71 @@ class Solution {
         }
         return ans;
     }
+
     public int last(int[] nums, int low, int high, int target){
-        int ans = nums.length;
+        int ans = -1;
         while(low<=high){
-            int mid = low + (high-low)/2;
-            if(nums[mid] > target){
+            int mid = low+(high-low)/2;
+            if(nums[mid] == target){
                 ans = mid;
-                high = mid-1;
+                low = mid+1;
+            }
+            else if(nums[mid] < target){
+                low = mid+1;
             }
             else{
-                low = mid+1;
+                high = mid-1;
             }
         }
         return ans;
     }
     public int[] searchRange(int[] nums, int target) {
-        int[] ans = new int[2];
-        int lb = first(nums, 0, nums.length-1, target);
-        ans[0] = -1;
-        ans[1] = -1;
-        if(lb == -1 || lb == nums.length || nums[lb] != target) return ans;
-        int up = last(nums, 0, nums.length-1, target);
-        ans[0] = lb;
-        ans[1] = up-1;
-        
+        int[] ans = new int[]{-1, -1};
+        int first = first(nums, 0, nums.length-1, target);
+        if(first == -1) return ans;
+        int last = last(nums, 0, nums.length-1, target);
+        ans[0] = first;
+        ans[1] = last;
         return ans;
     }
+    // public int first(int[] nums, int low, int high, int target){
+    //     int ans = -1;
+    //     while(low<=high){
+    //         int mid = low + (high-low)/2;
+    //         if(nums[mid] >= target){
+    //             ans = mid;
+    //             high = mid-1;
+    //         }
+    //         else{
+    //             low = mid+1;
+    //         }
+    //     }
+    //     return ans;
+    // }
+    // public int last(int[] nums, int low, int high, int target){
+    //     int ans = nums.length;
+    //     while(low<=high){
+    //         int mid = low + (high-low)/2;
+    //         if(nums[mid] > target){
+    //             ans = mid;
+    //             high = mid-1;
+    //         }
+    //         else{
+    //             low = mid+1;
+    //         }
+    //     }
+    //     return ans;
+    // }
+    // public int[] searchRange(int[] nums, int target) {
+    //     int[] ans = new int[2];
+    //     int lb = first(nums, 0, nums.length-1, target);
+    //     ans[0] = -1;
+    //     ans[1] = -1;
+    //     if(lb == -1 || lb == nums.length || nums[lb] != target) return ans;
+    //     int up = last(nums, 0, nums.length-1, target);
+    //     ans[0] = lb;
+    //     ans[1] = up-1;
+        
+    //     return ans;
+    // }
 }
