@@ -9,10 +9,10 @@ class Solution {
         return max;
     }
 
-    public long findh(int[] piles, int hourly){
-        long totalhrs = 0;
+    public int findh(int[] piles, int hourly){
+        int totalhrs = 0;
         for(int i: piles){
-            totalhrs += (i+hourly-1)/hourly;
+            totalhrs += Math.ceil((double)i/(double)hourly);
         }
         return totalhrs;
     }
@@ -25,7 +25,7 @@ class Solution {
         int ans = 0;
         while(low<=high){
             int mid = low + (high-low)/2;
-            long hourly = findh(piles, mid);
+            int hourly = findh(piles, mid);
             if(hourly<=h){
                 ans = mid;
                 high = mid-1;
