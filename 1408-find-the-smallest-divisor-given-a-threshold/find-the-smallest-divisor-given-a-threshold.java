@@ -24,7 +24,7 @@ class Solution {
                 low = mid+1;
             }
         }
-        return ans;
+        return low;
         // for(int i=1; i<=max; i++){
         //     int cal = calSum(nums, i, threshold);
         //     if(cal <= threshold){
