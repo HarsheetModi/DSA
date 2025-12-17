@@ -33,8 +33,8 @@ class Solution {
             }
             
             // Update the indices of characters in both strings
-            indexS[s.charAt(i)] = i + 1; // updating index of current character
-            indexT[t.charAt(i)] = i + 1; // updating index of current character
+            indexS[s.charAt(i)] = i+1; // updating index of current character
+            indexT[t.charAt(i)] = i+1; // updating index of current character
         }
         
         // If the loop completes without returning false, strings are isomorphic
