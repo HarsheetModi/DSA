@@ -43,7 +43,7 @@ class Solution {
             ch = s.charAt(i);
             if(map.containsKey(ch)){
                 if((long)result * 10 + map.get(ch) > Integer.MAX_VALUE) return Integer.MAX_VALUE;
-                else if((long)result * 10 - map.get(ch) < Integer.MIN_VALUE || result - 1 == Integer.MAX_VALUE) return Integer.MIN_VALUE;
+                else if((long)result * 10 - map.get(ch) < Integer.MIN_VALUE) return Integer.MIN_VALUE;
                 else if(result < 0) result = result * 10 - map.get(ch);
                 else result = result * 10 + map.get(ch);
                 i++;
